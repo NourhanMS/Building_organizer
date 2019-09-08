@@ -8,7 +8,10 @@ $doc_root=substr($_SERVER['SCRIPT_NAME'],0,$findME);
 define('PUBLIC_ROOT',$doc_root);
 define('IMAGE_PATH',PUBLIC_ROOT."images/");
 include_once('credentials.php');
+include_once('functions.php');
 include_once('classes/databaseobject.class.php');
+include_once('classes/admin.class.php');
+
 
   $db =new mysqli(DB_SERVER,USER_NAME,PASSWORD,DB_NAME);
   DatabaseObject::set_database($db);

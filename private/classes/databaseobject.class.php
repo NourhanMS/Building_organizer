@@ -12,6 +12,7 @@ class DatabaseObject
     self::$database = $database;
   }
 
+# returns array of objects with the result
   static public function find_by_sql($sql) 
   {
     $result = self::$database->query($sql);
@@ -57,41 +58,17 @@ class DatabaseObject
      }
      return $object;
   }
- 
-
-  // Properties which have database columns, excluding ID
-  public function attributes($id_name="id") 
-   {
-    $attributes = [];
-    foreach(static::$db_columns as $column)
-    {
-      if($column == $id_name) 
-         {continue;}  
-      $attributes[$column] = $this->$column;  
-    }
-    return $attributes;
-   }
-
-  protected function sanitized_attributes($id_name="id")
-   {
-    $sanitized = [];
-    foreach($this->attributes($id_name) as $key => $value) 
-    {
-      $sanitized[$key] = self::$database->escape_string($value);
-    }
-    return $sanitized;
-   }
-
-  public function delete($id_name="id")
+  static public function insert($sql)
   {
-    $sql = "DELETE FROM " . static::$table_name . " ";
-    $sql .= "WHERE ".$id_name." ='" . self::$database->escape_string($this->$id_name) . "' ";
-    $sql .= "LIMIT 1";
-    $result = self::$database->query($sql);
-    return $result;
-
+    $result= self::$database->query($sql);
+    return($result);
   }
-  
+  static public function find_sum($sql)
+  {
+    $result_set= self::$database->query($sql);
+	  $row= $result_set->fetch_row();
+	  return array_shift($row);
+  }
 
 }
 
