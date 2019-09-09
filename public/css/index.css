@@ -1,0 +1,33 @@
+
+a:hover {
+  background-color: rgb(144, 146, 238);
+}
+a:active {
+  background-color: rgb(255, 105, 105);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#user_area>ul>li{
+  float:right;
+}
+#user_area>ul>li>a{
+  text-decoration:none;
+  color:black;
+}
+#user_area>ul>li>a:hover {
+  background-color: rgb(144, 146, 238);
+}
+#admin_area>ul>li{
+  float:right;
+}
+#admin_area>ul>li>a{
+  text-decoration:none;
+  color:black;
+}
+#admin_area>ul>li>a:hover {
+  background-color: rgb(144, 146, 238);
+}

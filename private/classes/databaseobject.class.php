@@ -32,6 +32,24 @@ class DatabaseObject
     return $object_array;
   }
 
+  static public function find_one_field_by_sql($sql,$fieldNamel) 
+  {
+    $result = self::$database->query($sql);
+    if(!$result)
+     {
+      exit("Database query failed.");
+     }
+    // results into array
+    $object_array = [];
+    while($record = $result->fetch_assoc())
+     {
+    
+       $object_array[] = $record[$fieldNamel];
+     }
+
+    $result->free(); 
+    return $object_array;
+  }
   static public function find_all()
   {
     $sql = "SELECT * FROM " . static::$table_name;
