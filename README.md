@@ -12,12 +12,17 @@ LAMP
 
 ## Supported features
 1-General home page for all users
+
 2- Login form for owners
+
 3- control page for admin where he can :
+
 a) add monthly/emergency requests
+
 b) record financial receivables from owners
+
 c) record expenses
-d) know how much remains in the
-building’s box.e) query for each department and how
-much it should pay for monthly /
-emergency costs.
+
+d) know how much remains in the building’s box.
+
+e) query for each department and how much it should pay for monthly /emergency costs.
